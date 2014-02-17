@@ -10,9 +10,9 @@ public class LanceurDeOthello {
 	{
 		
 		System.out.println("Création d'une partie de Othello");
-		Partie partieDeOthello = new Partie();
+		PartieDeOthello nouvellePartieDeOthello = new PartieDeOthello();
 		System.out.println("Demarrage de la partie");
-		partieDeOthello.jouer();
+		nouvellePartieDeOthello.jouer();
 		System.out.println("Fin de la partie");
 	}
 	
