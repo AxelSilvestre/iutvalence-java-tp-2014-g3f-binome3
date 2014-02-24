@@ -6,17 +6,6 @@ package fr.iutvalence.java.tp.othello;
  */
 public class PartieDeOthello
 {
-
-	// TODO (fait) écrire le commentaire
-	// TODO (fait) respecter les conditions d'écriture
-	/** la constante BLANC. */
-	private final static boolean BLANC = true;
-
-	// TODO (fait) écrire le commentaire
-	// TODO (fait) respecter les conditions d'écriture
-	/** la constante NOIR. */
-	private final static boolean NOIR = false;
-
 	// TODO (fait) écrire le commentaire
 	/** Le plateau utilisé. */
 	private Plateau monPlateau;
@@ -39,10 +28,9 @@ public class PartieDeOthello
 		// TODO (fait) manipuler l'attribut via this
 		this.monPlateau = new Plateau();
 		// TODO (fait) manipuler l'attribut via this
-		this.joueurBlanc = new Joueur(blanc);
+		this.joueurBlanc = new Joueur(true, Couleur.BLANC);
 		// TODO (fait) manipuler l'attribut via this
-		this.joueurNoir = new Joueur(noir);
-
+		this.joueurNoir = new Joueur(false, Couleur.NOIR);
 	}
 
 	// TODO (fait) écrire le commentaire
@@ -51,5 +39,6 @@ public class PartieDeOthello
 	 */
 	public void jouer()
 	{
+		
 	}
 }
