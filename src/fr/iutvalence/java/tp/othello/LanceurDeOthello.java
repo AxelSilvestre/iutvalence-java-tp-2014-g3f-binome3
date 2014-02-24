@@ -1,18 +1,25 @@
 package fr.iutvalence.java.tp.othello;
 
-// TODO écrire le commentaire
+// TODO (fait) : Auto-generated Javadoc
+// TODO (fait) écrire le commentaire
+
+/**
+ * Lance l'application Othello
+ */
 public class LanceurDeOthello {
 
-	// TODO compléter le commentaire
+	// TODO (fait) compléter le commentaire
 	/**
-	 * Start a new game of Othello.
+	 * Crée une partie de Othello.
+	 * Lance la partie
+	 * Ferme la partie quand elle est terminée
 	 */
 	public static void main(String[] args)
 	{
-		// TODO corriger les accents
-		System.out.println("Cr�ation d'une partie de Othello");
+		// TODO (fait) corriger les accents
+		System.out.println("Création d'une partie de Othello");
 		PartieDeOthello nouvellePartieDeOthello = new PartieDeOthello();
-		System.out.println("Demarrage de la partie");
+		System.out.println("Démarrage de la partie");
 		nouvellePartieDeOthello.jouer();
 		System.out.println("Fin de la partie");
 	}

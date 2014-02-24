@@ -1,39 +1,54 @@
 package fr.iutvalence.java.tp.othello;
 
-// TODO écrire le commentaire
+// TODO (fait) écrire le commentaire
+/**
+ * Débute une partie de Othello.
+ */
 public class PartieDeOthello
 {
 
-	// TODO écrire le commentaire
-	// TODO respecter les conditions d'écriture
-	private final static boolean blanc = true;
+	// TODO (fait) écrire le commentaire
+	// TODO (fait) respecter les conditions d'écriture
+	/** la constante BLANC. */
+	private final static boolean BLANC = true;
 
-	// TODO écrire le commentaire
-	// TODO respecter les conditions d'écriture
-	private final static boolean noir = false;
+	// TODO (fait) écrire le commentaire
+	// TODO (fait) respecter les conditions d'écriture
+	/** la constante NOIR. */
+	private final static boolean NOIR = false;
 
-	// TODO écrire le commentaire
+	// TODO (fait) écrire le commentaire
+	/** Le plateau utilisé. */
 	private Plateau monPlateau;
 
-	// TODO écrire le commentaire
+	// TODO (fait) écrire le commentaire
+	/** Le joueur blanc. */
 	private Joueur joueurBlanc;
 
-	// TODO écrire le commentaire
+	// TODO (fait) écrire le commentaire
+	/** Le joueur noir. */
 	private Joueur joueurNoir;
 
-	// TODO écrire le commentaire
+	// TODO (fait) écrire le commentaire
+
+	/**
+	 * Instancie une nouvelle partie de Othello.
+	 */
 	public PartieDeOthello()
 	{
-		// TODO manipuler l'attribut via this
-		monPlateau = new Plateau();
-		// TODO manipuler l'attribut via this
-		joueurBlanc = new Joueur(blanc);
-		// TODO manipuler l'attribut via this
-		joueurNoir = new Joueur(noir);
+		// TODO (fait) manipuler l'attribut via this
+		this.monPlateau = new Plateau();
+		// TODO (fait) manipuler l'attribut via this
+		this.joueurBlanc = new Joueur(blanc);
+		// TODO (fait) manipuler l'attribut via this
+		this.joueurNoir = new Joueur(noir);
 
 	}
 
-	// TODO écrire le commentaire
+	// TODO (fait) écrire le commentaire
+	/**
+	 * La méthode permettant de jouer.
+	 */
 	public void jouer()
 	{
 	}
