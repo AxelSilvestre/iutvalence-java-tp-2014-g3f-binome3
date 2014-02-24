@@ -1,5 +1,7 @@
 package fr.iutvalence.java.tp.othello;
 
-public class Plateau {
+// TODO écrire le commentaire
+public class Plateau
+{
 
 }

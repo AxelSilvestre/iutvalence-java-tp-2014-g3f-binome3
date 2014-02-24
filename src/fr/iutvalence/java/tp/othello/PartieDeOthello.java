@@ -1,57 +1,40 @@
 package fr.iutvalence.java.tp.othello;
 
-
+// TODO écrire le commentaire
 public class PartieDeOthello
 {
 
-	private Plateau monPlateau;
-	private Joueur joueurBlanc;
-	private Joueur joueurNoir;
+	// TODO écrire le commentaire
+	// TODO respecter les conditions d'écriture
 	private final static boolean blanc = true;
+
+	// TODO écrire le commentaire
+	// TODO respecter les conditions d'écriture
 	private final static boolean noir = false;
-	
-	
-	
+
+	// TODO écrire le commentaire
+	private Plateau monPlateau;
+
+	// TODO écrire le commentaire
+	private Joueur joueurBlanc;
+
+	// TODO écrire le commentaire
+	private Joueur joueurNoir;
+
+	// TODO écrire le commentaire
 	public PartieDeOthello()
 	{
+		// TODO manipuler l'attribut via this
 		monPlateau = new Plateau();
+		// TODO manipuler l'attribut via this
 		joueurBlanc = new Joueur(blanc);
+		// TODO manipuler l'attribut via this
 		joueurNoir = new Joueur(noir);
-		
+
 	}
-	
-	public void jouer() 
+
+	// TODO écrire le commentaire
+	public void jouer()
 	{
-
-		
-		
 	}
-	
-
-	public Plateau getMonPlateau() {
-		return this.monPlateau;
-	}
-
-	public void setMonPlateau(Plateau monPlateau) {
-		this.monPlateau = monPlateau;
-	}
-
-	public Joueur getJoueurBlanc() {
-		return this.joueurBlanc;
-	}
-
-	public void setJoueurBlanc(Joueur joueurBlanc) {
-		this.joueurBlanc = joueurBlanc;
-	}
-
-	public Joueur getJoueurNoir() {
-		return this.joueurNoir;
-	}
-
-	public void setJoueurNoir(Joueur joueurNoir) {
-		this.joueurNoir = joueurNoir;
-	}
-
-	
 }
-
