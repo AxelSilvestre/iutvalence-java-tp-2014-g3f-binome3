@@ -7,16 +7,17 @@ package fr.iutvalence.java.tp.othello;
 
 public class Joueur
 {
-	private final static int nombreDePionsInital = 2;
-	private final boolean commenceLePremier;
+	private final static int NOMBRE_PIONS_INITIAL = 2;
+	private boolean aQuiLeTour;
 	private int nombrePions;
 	private final Couleur couleurJoueur;
 	
-	public Joueur(boolean initiative, Couleur couleur)
+	public Joueur(Couleur couleur)
 	{
-		this.commenceLePremier = initiative;
 		this.couleurJoueur = couleur;
-		this.nombrePions = nombreDePionsInital;		
+		this.nombrePions = NOMBRE_PIONS_INITIAL;
+		if (this.couleurJoueur == Couleur.BLANC)
+				this.aQuiLeTour = true;
 	}
 	
 	public int getNombrePions()
