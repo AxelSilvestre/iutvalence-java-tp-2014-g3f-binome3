@@ -1,42 +1,25 @@
 package fr.iutvalence.java.tp.othello;
 
-// TODO écrire un commentaire plus précis
 /**
- * Crée un Joueur.
+ * Représente un joueur d'Othello. Chaque joueur à une couleur (blanc ou noir).
  */
+public class Joueur {
 
-public class Joueur
-{
-	// TODO écrire un commentaire
-	private final static int NOMBRE_PIONS_INITIAL = 2;
-	
-	// TODO écrire un commentaire
+	// Définit si le joueur peut jouer ou non.
 	private boolean aQuiLeTour;
-	
-	// TODO écrire un commentaire
-	private int nombrePions;
-	
-	// TODO écrire un commentaire
+
+	// Couleur du Joueur.
 	private final Couleur couleurJoueur;
-	
-	// TODO écrire un commentaire
-	public Joueur(Couleur couleur)
-	{
+
+	/**
+	 * Crée un joueur.
+	 * @params une couleur
+	 */
+	public Joueur(Couleur couleur) {
 		this.couleurJoueur = couleur;
-		this.nombrePions = NOMBRE_PIONS_INITIAL;
 		if (this.couleurJoueur == Couleur.BLANC)
-				this.aQuiLeTour = true;
-	}
-	
-	// TODO écrire un commentaire
-	public int getNombrePions()
-	{
-		return nombrePions;
-	}
-	
-	// TODO écrire un commentaire
-	public void setNombrePions(int nombrePions)
-	{
-		this.nombrePions = nombrePions;
+			this.aQuiLeTour = true;
+		else
+			this.aQuiLeTour = false;
 	}
 }

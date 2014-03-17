@@ -1,11 +1,10 @@
 package fr.iutvalence.java.tp.othello;
 
-// TODO corriger le commentaire
 /**
- * Débute une partie de Othello.
+ * Définit une partie de Othello. Une partie est constitué de deux joueurs et d'un plateau.
  */
-public class PartieDeOthello
-{
+
+public class PartieDeOthello {
 	/** Le plateau utilisé. */
 	private Plateau monPlateau;
 
@@ -15,12 +14,12 @@ public class PartieDeOthello
 	/** Le joueur noir. */
 	private Joueur joueurNoir;
 
-	// TODO écrire un commentaire plus précis
 	/**
-	 * Instancie une nouvelle partie de Othello.
+	 * Instancie une nouvelle partie de Othello. Crée un nouveau Plateau. 
+	 * Crée un joueur noir et un joueur blanc.
 	 */
-	public PartieDeOthello()
-	{
+
+	public PartieDeOthello() {
 		this.monPlateau = new Plateau();
 		this.joueurBlanc = new Joueur(Couleur.BLANC);
 		this.joueurNoir = new Joueur(Couleur.NOIR);
@@ -29,19 +28,19 @@ public class PartieDeOthello
 	/**
 	 * La méthode permettant de jouer.
 	 */
-	public void jouer()
-	{
+
+	public void jouer() {
 
 		// En cours de test
-
-		// Scanner sc = new Scanner(System.in);
-		// System.out.println("Veuillez saisir les coordonnées :");
-		// System.out.println("x = ?");
-		// int x = sc.nextInt();
-		// System.out.println("y = ?");
-		// int y = sc.nextInt();
-		//
-		// monPlateau.occuperCase(x, y, couleur);
+//
+//		 Scanner sc = new Scanner(System.in);
+//		 System.out.println("Veuillez saisir les coordonnées :");
+//		 System.out.println("x = ?");
+//		 int x = sc.nextInt();
+//		 System.out.println("y = ?");
+//		 int y = sc.nextInt();
+//		
+//		 monPlateau.occuperCase(x, y, couleur);
 
 	}
 }

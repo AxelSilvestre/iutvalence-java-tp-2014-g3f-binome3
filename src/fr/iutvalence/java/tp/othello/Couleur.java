@@ -1,10 +1,12 @@
 package fr.iutvalence.java.tp.othello;
 
-// TODO écrire un commentaire
-public enum Couleur
-{
-	// TODO écrire un commentaire
+/**
+ * Enumération des couleurs disponibles (Blanc/Noir).
+ */
+
+public enum Couleur {
+	// La couleur blanche.
 	BLANC,
-	// TODO écrire un commentaire
+	// La couleur noir.
 	NOIR;
 }
