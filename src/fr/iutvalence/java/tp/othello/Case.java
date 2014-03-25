@@ -21,5 +21,11 @@ public class Case {
 	public void poserPion(Pion pion) {
 		this.pion = pion;
 	}
-
+	
+	// Teste si une case est occupée.
+	public boolean estOccupee()
+	{
+		return (this.obtenirPion() != null);
+	}
+	
 }

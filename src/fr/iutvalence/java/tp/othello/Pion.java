@@ -25,4 +25,20 @@ public class Pion {
 		else
 			this.couleur = Couleur.BLANC;
 	}
+
+	// Teste si un pion peut être posé ou pas.
+	public boolean peutEtrePose(Position unePosition)
+	{
+		return true;
+	}
+	
+	// Convertit le pion en chaine de caractères.
+	public String toString() 
+	{
+		if (this.couleur == Couleur.BLANC)
+			return "B ";
+		else
+			return "N ";
+	}
+	
 }

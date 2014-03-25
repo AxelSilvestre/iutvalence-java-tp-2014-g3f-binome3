@@ -5,62 +5,82 @@ package fr.iutvalence.java.tp.othello;
  */
 
 public class Plateau {
-	// Nombre maximum de lignes du tableau
+	// Nombre maximum de lignes du tableau.
 	private final static int NOMBRE_DE_LIGNES = 8;
 
-	// Nombre maximum de colonnes du plateau
+	// Nombre maximum de colonnes du plateau.
 	private final static int NOMBRE_DE_COLONNES = 8;
 
-	// Tableau de cases
+	// Tableau de cases.
 	private Case[][] cases;
 
-	// Plateau constitué de cases vides ou non
+	// Plateau constitué de cases vides ou non.
 	public Plateau() {
 
 		this.cases = new Case[NOMBRE_DE_LIGNES][NOMBRE_DE_COLONNES];
 
-		// Creé les objets de type Case du tableau
+		// Creé les objets de type Case du tableau.
 		for (int numeroDeLigne = 0; numeroDeLigne < NOMBRE_DE_LIGNES; numeroDeLigne++)
 			for (int numeroDeColonne = 0; numeroDeColonne < NOMBRE_DE_COLONNES; numeroDeColonne++)
 				this.cases[numeroDeLigne][numeroDeColonne] = new Case();
-
-		// Pose les 4 premiers pions
+		this.installerPions();
+	}
+	
+	// Pose les 4 premiers pions.
+	private void installerPions()
+	{
 		this.cases[3][3].poserPion(new Pion(Couleur.BLANC));
 		this.cases[4][4].poserPion(new Pion(Couleur.BLANC));
 		this.cases[3][4].poserPion(new Pion(Couleur.NOIR));
 		this.cases[4][3].poserPion(new Pion(Couleur.NOIR));
 	}
 
-	// Transforme un plateau en texte
+	// Transforme un plateau en texte.
 	public String toString() {
 		String plateauAsciiArt = "";
 
 		for (int numeroDeLigne = 0; numeroDeLigne < NOMBRE_DE_LIGNES; numeroDeLigne++) {
 			for (int numeroDeColonne = 0; numeroDeColonne < NOMBRE_DE_COLONNES; numeroDeColonne++) {
-				if (this.cases[numeroDeLigne][numeroDeColonne].obtenirPion() != null
-						&& this.cases[numeroDeLigne][numeroDeColonne].obtenirPion().obtenirCouleur() == Couleur.BLANC)
-					plateauAsciiArt += "B ";
-				else if (this.cases[numeroDeLigne][numeroDeColonne].obtenirPion() != null
-						&& this.cases[numeroDeLigne][numeroDeColonne].obtenirPion().obtenirCouleur() == Couleur.NOIR)
-					plateauAsciiArt += "N ";
+				if (this.cases[numeroDeLigne][numeroDeColonne].obtenirPion() != null)
+					plateauAsciiArt += this.cases[numeroDeLigne][numeroDeColonne].obtenirPion().toString();
 				else
-					plateauAsciiArt += "O ";
+					plateauAsciiArt += "+ ";
 			}
 			plateauAsciiArt += "\n";
 		}
-
 		return plateauAsciiArt;
 	}
 	
-	
-	public void occuperCase(int x, int y, Couleur couleur)
-	{
-		this.cases[x][y].poserPion(new Pion(couleur));
-	}
-	
-//	public Pion estOccupee(int x, int y)
+//	/**
+//	 * Occupe une case du plateau avec un pion.
+//	 * @param x : l'abscisse de la position du pion.
+//	 * @param y : l'ordonné de la position du pion.
+//	 * @param couleur : la couleur du pion à poser.
+//	 * @throws occuperCaseException : la position n'est pas valide.
+//	 */
+//	public void occuperCase(int x, int y, Couleur couleur) throws occuperCaseException
 //	{
-//		if (this.cases[x][y] != null)
-//		tis.cases[x][y].obtenirPion();	
+//		if (this.positionValide(x,y))
+//			this.cases[x][y].poserPion(new Pion(couleur));
+//		else throw new occuperCaseException();
 //	}
+	
+//	private boolean positionValide(int x, int y)
+//	{
+//		if (this.estOccupee(x,y) != null)
+//			return false;
+//		else
+//			for( int i = 0; i< 
+//					this.obtenirCasesVoisines(x, y).length; ++i){ 
+//				
+//			}
+//			return true;
+//	}
+//	
+//	private Case[] casesVoisines obtenirCasesVoisines(int x, int y)
+//	{
+//		// à compléter
+//	}
+	
+
 }

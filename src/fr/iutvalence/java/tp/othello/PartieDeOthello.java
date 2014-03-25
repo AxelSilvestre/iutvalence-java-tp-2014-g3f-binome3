@@ -29,18 +29,8 @@ public class PartieDeOthello {
 	 * La méthode permettant de jouer.
 	 */
 
-	public void jouer() {
-
-		// En cours de test
-//
-//		 Scanner sc = new Scanner(System.in);
-//		 System.out.println("Veuillez saisir les coordonnées :");
-//		 System.out.println("x = ?");
-//		 int x = sc.nextInt();
-//		 System.out.println("y = ?");
-//		 int y = sc.nextInt();
-//		
-//		 monPlateau.occuperCase(x, y, couleur);
+	public void jouer() 
+	{
 
 	}
 }

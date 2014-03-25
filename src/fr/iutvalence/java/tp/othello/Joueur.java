@@ -13,7 +13,7 @@ public class Joueur {
 
 	/**
 	 * Crée un joueur.
-	 * @params une couleur
+	 * @params une couleur : la couleur du joueur.
 	 */
 	public Joueur(Couleur couleur) {
 		this.couleurJoueur = couleur;
