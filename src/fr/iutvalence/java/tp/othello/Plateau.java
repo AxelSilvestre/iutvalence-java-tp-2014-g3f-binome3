@@ -22,7 +22,7 @@ public class Plateau {
 		// Creé les objets de type Case du tableau.
 		for (int numeroDeLigne = 0; numeroDeLigne < NOMBRE_DE_LIGNES; numeroDeLigne++)
 			for (int numeroDeColonne = 0; numeroDeColonne < NOMBRE_DE_COLONNES; numeroDeColonne++)
-				this.cases[numeroDeLigne][numeroDeColonne] = new Case();
+				this.cases[numeroDeLigne][numeroDeColonne] = new Case(new Position(numeroDeLigne,  numeroDeColonne));
 		this.installerPions();
 	}
 	
@@ -51,36 +51,6 @@ public class Plateau {
 		return plateauAsciiArt;
 	}
 	
-//	/**
-//	 * Occupe une case du plateau avec un pion.
-//	 * @param x : l'abscisse de la position du pion.
-//	 * @param y : l'ordonné de la position du pion.
-//	 * @param couleur : la couleur du pion à poser.
-//	 * @throws occuperCaseException : la position n'est pas valide.
-//	 */
-//	public void occuperCase(int x, int y, Couleur couleur) throws occuperCaseException
-//	{
-//		if (this.positionValide(x,y))
-//			this.cases[x][y].poserPion(new Pion(couleur));
-//		else throw new occuperCaseException();
-//	}
-	
-//	private boolean positionValide(int x, int y)
-//	{
-//		if (this.estOccupee(x,y) != null)
-//			return false;
-//		else
-//			for( int i = 0; i< 
-//					this.obtenirCasesVoisines(x, y).length; ++i){ 
-//				
-//			}
-//			return true;
-//	}
-//	
-//	private Case[] casesVoisines obtenirCasesVoisines(int x, int y)
-//	{
-//		// à compléter
-//	}
-	
+
 
 }
