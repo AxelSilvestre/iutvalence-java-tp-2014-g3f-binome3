@@ -5,21 +5,19 @@ package fr.iutvalence.java.tp.othello;
  */
 public class Joueur {
 
-	// Définit si le joueur peut jouer ou non.
-	private boolean aQuiLeTour;
-
-	// Couleur du Joueur.
-	private final Couleur couleurJoueur;
-
+	private String nomJoueur;
+	private final static String NOM_PAR_DEFAUT = "Nom par défaut";
+	
 	/**
 	 * Crée un joueur.
-	 * @params une couleur : la couleur du joueur.
+	 * @param un nom : le nom du joueur.
 	 */
-	public Joueur(Couleur couleur) {
-		this.couleurJoueur = couleur;
-		if (this.couleurJoueur == Couleur.BLANC)
-			this.aQuiLeTour = true;
-		else
-			this.aQuiLeTour = false;
+	public Joueur(String unNom) {
+		this.nomJoueur = unNom;;
+	}
+	
+	public Joueur()
+	{
+		this.nomJoueur = NOM_PAR_DEFAUT;
 	}
 }

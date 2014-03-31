@@ -19,26 +19,17 @@ public class Pion {
 	}
 
 	// Inverse la couleur d'un pion.
+	/**
+	 * 
+	 */
 	public void inverserCouleur() {
-		if (this.couleur == Couleur.BLANC)
-			this.couleur = Couleur.NOIR;
-		else
-			this.couleur = Couleur.BLANC;
-	}
-
-	// Teste si un pion peut être posé ou pas.
-	public boolean peutEtrePose(Position unePosition)
-	{
-		return true;
+		this.couleur = this.couleur.obtenirCouleurInverse();
 	}
 	
 	// Convertit le pion en chaine de caractères.
 	public String toString() 
 	{
-		if (this.couleur == Couleur.BLANC)
-			return "B ";
-		else
-			return "N ";
+		return this.couleur.toString();
 	}
 	
 }

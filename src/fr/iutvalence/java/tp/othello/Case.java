@@ -34,5 +34,5 @@ public class Case {
 	public boolean estOccupee()
 	{
 		return (this.obtenirPion() != null);
-	}	
+	}
 }

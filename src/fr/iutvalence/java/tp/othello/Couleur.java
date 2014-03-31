@@ -9,4 +9,18 @@ public enum Couleur {
 	BLANC,
 	// La couleur noir.
 	NOIR;
+	
+	public Couleur obtenirCouleurInverse()
+	{
+		if (this == BLANC) return NOIR;
+		return BLANC;
+	}
+	
+	// Convertit le pion en chaine de caractères.
+		public String toString() 
+		{
+			if (this == Couleur.BLANC)
+				return "B ";
+			return "N ";
+		}
 }

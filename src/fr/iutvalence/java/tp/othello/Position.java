@@ -40,20 +40,13 @@ public class Position
 		return this.numeroDeColonne;
 	}
 	
-	// Retourne les positions adjacentes d'une position relative sous forme de tableau.
-	public Position[]  obtenirPositionsVoisines (Position unePosition)
+	/**
+	 * Obtenir le la position voisine
+	 * @param direction la direction vers la case voisine
+	 * @return la position voisine
+	 */
+	public Position obtenirVoisine(Direction direction)
 	{
-		Position[] positionsVoisines = new Position[7];;
-		
-		positionsVoisines[0] = new Position(unePosition.numeroDeLigne - 1, unePosition.numeroDeColonne + 1);
-		positionsVoisines[1] = new Position(unePosition.numeroDeLigne, unePosition.numeroDeColonne + 1);
-		positionsVoisines[2] = new Position(unePosition.numeroDeLigne + 1, unePosition.numeroDeColonne + 1);
-		positionsVoisines[3] = new Position(unePosition.numeroDeLigne - 1, unePosition.numeroDeColonne);
-		positionsVoisines[4] = new Position(unePosition.numeroDeLigne + 1, unePosition.numeroDeColonne);
-		positionsVoisines[5] = new Position(unePosition.numeroDeLigne - 1, unePosition.numeroDeColonne - 1);
-		positionsVoisines[6] = new Position(unePosition.numeroDeLigne, unePosition.numeroDeColonne - 1);
-		positionsVoisines[7] = new Position(unePosition.numeroDeLigne + 1, unePosition.numeroDeColonne - 1);
-		
-		return  positionsVoisines;
+		return new Position(this.numeroDeLigne+direction.obtenirDecalageY(), this.numeroDeColonne+direction.obtenirDecalageX());
 	}
 }

@@ -5,6 +5,7 @@ package fr.iutvalence.java.tp.othello;
  */
 
 public class PartieDeOthello {
+
 	/** Le plateau utilisé. */
 	private Plateau monPlateau;
 
@@ -21,8 +22,8 @@ public class PartieDeOthello {
 
 	public PartieDeOthello() {
 		this.monPlateau = new Plateau();
-		this.joueurBlanc = new Joueur(Couleur.BLANC);
-		this.joueurNoir = new Joueur(Couleur.NOIR);
+		this.joueurBlanc = new Joueur("Joueur1");
+		this.joueurNoir = new Joueur("Joueur2");
 	}
 
 	/**
@@ -32,5 +33,20 @@ public class PartieDeOthello {
 	public void jouer() 
 	{
 
+	}
+
+	public boolean positionValide(Couleur uneCouleur, Position unePosition)
+	{				
+		for (Direction direction : Direction.values()) {
+			
+			Case laCase = this.monPlateau.obtenirCase(unePosition.obtenirVoisine(direction));
+			
+			if (this.monPlateau.obtenirCase(unePosition).estOccupee())
+				do {
+					
+				} while (laCase.obtenirPion().obtenirCouleur() == uneCouleur.obtenirCouleurInverse());
+		
+				return false;
+		}
 	}
 }
