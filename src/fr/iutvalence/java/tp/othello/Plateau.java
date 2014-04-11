@@ -37,7 +37,25 @@ public class Plateau {
 	
 	public Case obtenirCase(Position unePosition)
 	{
-		return this.cases[unePosition.obtenirNumeroDeLigne()][unePosition.obtenirNumeroDeColonne()];
+		return this.cases[unePosition.obtenirCoordonneesEnX()][unePosition.obtenirCoordonneesEnY()];
+	}
+	
+	public int obtenirNombreLignes()
+	{
+		return Plateau.NOMBRE_DE_LIGNES;
+	}
+	
+	public int obtenirNombreColonnes()
+	{
+		return Plateau.NOMBRE_DE_COLONNES;
+	}
+	
+	public boolean positionValide(Position unePosition)
+	{
+		if (unePosition.obtenirCoordonneesEnX() >= 0 && unePosition.obtenirCoordonneesEnX() < NOMBRE_DE_COLONNES)
+			if (unePosition.obtenirCoordonneesEnY() >= 0 && unePosition.obtenirCoordonneesEnY() < NOMBRE_DE_LIGNES)
+				return true;
+		return false;
 	}
 	
 	// Transforme un plateau en texte.
@@ -46,8 +64,8 @@ public class Plateau {
 
 		for (int numeroDeLigne = 0; numeroDeLigne < NOMBRE_DE_LIGNES; numeroDeLigne++) {
 			for (int numeroDeColonne = 0; numeroDeColonne < NOMBRE_DE_COLONNES; numeroDeColonne++) {
-				if (this.cases[numeroDeLigne][numeroDeColonne].obtenirPion() != null)
-					plateauAsciiArt += this.cases[numeroDeLigne][numeroDeColonne].obtenirPion().obtenirCouleur().toString();
+				if (this.cases[numeroDeColonne][numeroDeLigne].obtenirPion() != null)
+					plateauAsciiArt += this.cases[numeroDeColonne][numeroDeLigne].obtenirPion().obtenirCouleur().toString();
 				else
 					plateauAsciiArt += "+ ";
 			}

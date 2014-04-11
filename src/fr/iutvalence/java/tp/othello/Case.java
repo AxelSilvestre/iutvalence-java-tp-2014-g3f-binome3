@@ -19,8 +19,8 @@ public class Case {
 		return this.pion;
 	}
 
-	// Retourne la position d'un pion sur un plateau de 8x8 cases.
-	public Position obtenirPosition(Pion unPion)
+	// Retourne la position d'une case.
+	public Position obtenirPosition()
 	{
 		return this.position;
 	}
