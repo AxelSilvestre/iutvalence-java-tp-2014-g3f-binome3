@@ -19,6 +19,7 @@ public class Case {
 		return this.pion;
 	}
 
+
 	// Retourne la position d'une case.
 	public Position obtenirPosition()
 	{
