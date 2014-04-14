@@ -60,9 +60,11 @@ public class Plateau {
 	
 	// Transforme un plateau en texte.
 	public String toString() {
-		String plateauAsciiArt = "";
-
+		
+		String plateauAsciiArt = "  0 1 2 3 4 5 6 7 \n";
+		
 		for (int numeroDeLigne = 0; numeroDeLigne < NOMBRE_DE_LIGNES; numeroDeLigne++) {
+			plateauAsciiArt += numeroDeLigne+" ";
 			for (int numeroDeColonne = 0; numeroDeColonne < NOMBRE_DE_COLONNES; numeroDeColonne++) {
 				if (this.cases[numeroDeColonne][numeroDeLigne].obtenirPion() != null)
 					plateauAsciiArt += this.cases[numeroDeColonne][numeroDeLigne].obtenirPion().obtenirCouleur().toString();

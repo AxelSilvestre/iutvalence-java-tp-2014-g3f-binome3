@@ -9,29 +9,29 @@ import java.io.InputStreamReader;
  */
 public class Joueur {
 
-	private String nomJoueur;
-	private final static String NOM_PAR_DEFAUT = "Joueur par défaut";
 	private final BufferedReader lecteurDeLignesDeTexteSurLEntreeStandard;
+	private final Couleur couleurJoueur;
+	private final String nomDuJoueur;
 
 	/**
 	 * Crée un joueur.
 	 * @param un nom : le nom du joueur.
 	 */
-	public Joueur(String unNom) {
-		this.nomJoueur = unNom;
+	public Joueur(Couleur uneCouleur, String unNomJoueur) {
+		this.couleurJoueur = uneCouleur;
+		this.nomDuJoueur =unNomJoueur;
 		this.lecteurDeLignesDeTexteSurLEntreeStandard = new BufferedReader(new InputStreamReader(System.in));
 	}
-
-	public Joueur()
+	
+	// Donne la couleur du joueur.
+	public Couleur obtenirCouleurJoueur()
 	{
-		this.nomJoueur = NOM_PAR_DEFAUT;
-		this.lecteurDeLignesDeTexteSurLEntreeStandard = new BufferedReader(new InputStreamReader(System.in));
+		return this.couleurJoueur;
 	}
-
-	// Donne le nom du joueur.
+	
 	public String obtenirNomJoueur()
 	{
-		return this.nomJoueur;
+		return this.nomDuJoueur;
 	}
 
 	public Position obtenirPositionProposee() throws Exception
@@ -44,11 +44,14 @@ public class Joueur {
 				throw new IOException();
 			if (ligneDeTexteLue.length() == 0)
 				throw new IOException();
-			return new Position(ligneDeTexteLue.charAt(0), ligneDeTexteLue.charAt(2));
+			int codeZeroASCII = Integer.parseInt("0");
+			return new Position(Character.getNumericValue(ligneDeTexteLue.charAt(0))-codeZeroASCII,
+					Character.getNumericValue(ligneDeTexteLue.charAt(2))-codeZeroASCII);
 		}
 		catch (IOException e)
 		{
 			throw new Exception();
 		}	
 	}
+	
 }
