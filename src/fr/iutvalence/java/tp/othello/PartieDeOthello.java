@@ -21,27 +21,27 @@ public class PartieDeOthello {
 	 * Instancie une nouvelle partie de Othello. Crée un nouveau Plateau. Crée
 	 * un joueur noir et un joueur blanc.
 	 */
-	public PartieDeOthello() {
+	public PartieDeOthello(Joueur joueurBlanc, Joueur joueurNoir) {
 		this.monPlateau = new Plateau();
-		this.joueurBlanc = new Joueur(Couleur.BLANC, "Joueur1");
-		this.joueurNoir = new Joueur(Couleur.NOIR, "Joueur2");
+		this.joueurBlanc = joueurBlanc;
+		this.joueurNoir = joueurNoir;
 	}
 	
 	public PartieDeOthello(String nomJoueurBlanc, String nomJoueurNoir) {
 		this.monPlateau = new Plateau();
-		this.joueurBlanc = new Joueur(Couleur.BLANC, nomJoueurBlanc);
-		this.joueurNoir = new Joueur(Couleur.NOIR, nomJoueurNoir);
+		this.joueurBlanc = new JoueurClavier(Couleur.BLANC, nomJoueurBlanc);
+		this.joueurNoir = new JoueurClavier(Couleur.NOIR, nomJoueurNoir);
 	}
 
 	public void jouer() throws Exception
 	{
 		while (true)
 		{
-			System.out.println(this.joueurBlanc.obtenirNomJoueur() + " c'est votre tour ! \n");
+			System.out.println(this.joueurBlanc.obtenirNom() + " c'est votre tour ! \n");
 			System.out.println("Saisir coordonnées (x,y) : ");
 			this.jouerUnCoup(this.joueurBlanc);
 			
-			System.out.println(this.joueurNoir.obtenirNomJoueur() + " c'est votre tour ! \n");
+			System.out.println(this.joueurNoir.obtenirNom() + " c'est votre tour ! \n");
 			System.out.println("Saisir coordonnées (x,y) : ");
 			this.jouerUnCoup(this.joueurNoir);
 		}
@@ -55,7 +55,7 @@ public class PartieDeOthello {
 
 		Position positionDesiree = unJoueur.obtenirPositionProposee();
 		Case laCaseOuPoserLePion = this.monPlateau.obtenirCase(positionDesiree);
-		Couleur couleurDuJoueur = unJoueur.obtenirCouleurJoueur();
+		Couleur couleurDuJoueur = unJoueur.obtenirCouleur();
 
 		if (positionJouable(couleurDuJoueur, positionDesiree)) {
 			laCaseOuPoserLePion.poserPion(new Pion(couleurDuJoueur));
@@ -86,7 +86,7 @@ public class PartieDeOthello {
 
 		Position laPositionVoisine = unePosition.obtenirVoisine(uneDirection);
 
-		if (!this.monPlateau.positionValide(laPositionVoisine))
+		if (!this.monPlateau.estPositionValide(laPositionVoisine))
 			return false;
 
 		Case laCaseVoisine = this.monPlateau.obtenirCase(laPositionVoisine);
@@ -101,7 +101,7 @@ public class PartieDeOthello {
 		while (true) {
 			positionSuivante = positionSuivante.obtenirVoisine(uneDirection);
 
-			if (!this.monPlateau.positionValide(positionSuivante))
+			if (!this.monPlateau.estPositionValide(positionSuivante))
 				return false;
 
 			Case caseSuivante = this.monPlateau.obtenirCase(positionSuivante);
@@ -140,7 +140,7 @@ public class PartieDeOthello {
 
 			Position laPositionVoisine = unePosition.obtenirVoisine(direction);
 
-			if (!this.monPlateau.positionValide(laPositionVoisine))
+			if (!this.monPlateau.estPositionValide(laPositionVoisine))
 				continue;
 
 			Case laCaseVoisine = this.monPlateau.obtenirCase(laPositionVoisine);
@@ -158,7 +158,7 @@ public class PartieDeOthello {
 				positionsTemporaires.add(positionSuivante);
 				positionSuivante = positionSuivante.obtenirVoisine(direction);
 
-				if (!this.monPlateau.positionValide(positionSuivante)) {
+				if (!this.monPlateau.estPositionValide(positionSuivante)) {
 					positionsTemporaires.clear();
 					continue; }
 				else {
@@ -195,7 +195,7 @@ public class PartieDeOthello {
 	 */
 	public void afficherJoueurs()
 	{
-		System.out.println(this.joueurBlanc.obtenirNomJoueur() + " a les pions blancs.");
-		System.out.println(this.joueurNoir.obtenirNomJoueur() + " a les pions noirs.  \n");
+		System.out.println(this.joueurBlanc.obtenirNom() + " a les pions blancs.");
+		System.out.println(this.joueurNoir.obtenirNom() + " a les pions noirs.  \n");
 	}
 }

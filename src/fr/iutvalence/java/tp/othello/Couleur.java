@@ -4,23 +4,35 @@ package fr.iutvalence.java.tp.othello;
  * Enumération des couleurs disponibles (Blanc/Noir).
  */
 
-public enum Couleur {
-	// La couleur blanche.
+public enum Couleur
+{
+	/**
+	 *  La couleur blanche.
+	 */
 	BLANC,
-	// La couleur noir.
+	/**
+	 *  La couleur noir.
+	 */
 	NOIR;
-	
+
+	/**
+	 * Obtenir la couleur inverse 
+	 * @return la couleur inverse 
+	 */
 	public Couleur obtenirCouleurInverse()
 	{
-		if (this == BLANC) return NOIR;
+		if (this == BLANC)
+			return NOIR;
 		return BLANC;
 	}
-	
-	// Convertit le pion en chaine de caractères.
-		public String toString() 
-		{
-			if (this == Couleur.BLANC)
-				return "B ";
-			return "N ";
-		}
+
+	/**
+	 * @see java.lang.Enum#toString()
+	 */
+	public String toString()
+	{
+		if (this == Couleur.BLANC)
+			return "B ";
+		return "N ";
+	}
 }

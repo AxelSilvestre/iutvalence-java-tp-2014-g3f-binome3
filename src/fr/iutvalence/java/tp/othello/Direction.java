@@ -1,5 +1,9 @@
 package fr.iutvalence.java.tp.othello;
 
+/**
+ * Représente les directions dans le plan
+ *
+ */
 public enum Direction {
 
 	EN_HAUT(0,-1),

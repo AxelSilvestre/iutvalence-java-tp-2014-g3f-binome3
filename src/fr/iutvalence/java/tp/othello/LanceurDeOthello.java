@@ -14,7 +14,9 @@ public class LanceurDeOthello {
 
 	public static void main(String[] args) throws Exception {
 		System.out.println("Création d'une partie de Othello\n");
-		PartieDeOthello nouvellePartieDeOthello = new PartieDeOthello(); // On crée une nouvelle partie d'Othello.
+		Joueur joueurBlanc = new JoueurClavier(Couleur.BLANC, "Joueur1");
+		Joueur joueurNoir = new JoueurClavier(Couleur.NOIR, "Joueur2");
+		PartieDeOthello nouvellePartieDeOthello = new PartieDeOthello(joueurBlanc, joueurNoir); // On crée une nouvelle partie d'Othello.
 		System.out.println("Démarrage de la partie\n");
 		System.out.println(nouvellePartieDeOthello.obtenirPlateau()); // On affiche le plateau initialisé.
 		nouvellePartieDeOthello.afficherJoueurs();

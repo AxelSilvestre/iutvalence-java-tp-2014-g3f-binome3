@@ -1,37 +1,65 @@
 package fr.iutvalence.java.tp.othello;
 
 /**
- * Représente une case d'un Plateau. Elle peut contenir une référence nulle ou celle d'un Pion.
+ * Représente une case d'un Plateau. Elle peut contenir une référence nulle ou
+ * celle d'un Pion.
  */
+public class Case
+{
 
-public class Case {
-
+	/**
+	 * Le pion posé sur la case
+	 */
 	private Pion pion;
-	private final Position position;
 	
-	public Case(Position unePosition) {
+	/**
+	 * La position de la case
+	 */
+	private final Position position;
+
+	/**
+	 * Création d'un nouvelle case, vide, à une position donnée
+	 * @param position la position
+	 */
+	public Case(Position position)
+	{
 		this.pion = null;
-		this.position = unePosition;
+		this.position = position;
 	}
 
-	// Retourne le pion d'une case.
-	public Pion obtenirPion() {
+	
+	/**
+	 * Obtention du pion 
+	 * @return le pion
+	 */
+	public Pion obtenirPion()
+	{
 		return this.pion;
 	}
 
-
-	// Retourne la position d'une case.
+	/**
+	 * Obtention la position 
+	 * @return la position
+	 */
 	public Position obtenirPosition()
 	{
 		return this.position;
 	}
-	
-	// Pose un pion sur la case.
-	public void poserPion(Pion pion) {
+
+	/**
+	 * Poser un pion
+	 * @param pion le pion
+	 */
+	public void poserPion(Pion pion)
+	{
 		this.pion = pion;
 	}
-	
-	// Teste si une case est occupée.
+
+
+	/**
+	 * Vérifier si la case est occupee
+	 * @return l'état d'occupation de la case
+	 */
 	public boolean estOccupee()
 	{
 		return (this.obtenirPion() != null);
