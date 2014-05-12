@@ -51,6 +51,7 @@ public class PartieDeOthello
 			this.affichage.afficherDemandeCoordonnees(joueurBlanc);
 			this.jouerUnCoup(this.joueurBlanc);
 
+			this.affichage.afficherPlateau(this.plateau);			
 			this.affichage.afficherDemandeCoordonnees(joueurNoir);
 			this.jouerUnCoup(this.joueurNoir);
 		}
