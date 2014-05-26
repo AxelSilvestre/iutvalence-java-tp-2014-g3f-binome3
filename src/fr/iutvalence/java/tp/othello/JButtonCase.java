@@ -8,21 +8,21 @@ public class JButtonCase extends JButton implements ActionListener {
 
 private final Position laPosition;
 private Couleur laCouleur;
-
-public JButtonCase(Position unePosition, Couleur uneCouleur) 
-{
-	super();
-	this.laPosition = unePosition;
-	if (uneCouleur == Couleur.NOIR)
-		this.setIcon(new ImageIcon("images/pion_noir.png"));
-	else
-		this.setIcon(new ImageIcon("images/pion_blanc.png"));	
-}
+private final static ImageIcon NOIR =  new ImageIcon("images/pion_noir.png");
+private final static ImageIcon BLANC =  new ImageIcon("images/pion_blanc.png"); 
 
 public JButtonCase(Position unePosition) 
 {
 	super();
 	this.laPosition = unePosition;
+}
+
+public void mettreCouleur(Couleur uneCouleur) 
+{
+	if (uneCouleur == Couleur.NOIR)
+		this.setIcon(NOIR);
+	else
+		this.setIcon(BLANC);	
 }
 
 public void actionPerformed(ActionEvent e) {

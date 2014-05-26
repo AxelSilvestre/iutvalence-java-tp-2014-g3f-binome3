@@ -1,5 +1,4 @@
 package fr.iutvalence.java.tp.othello;
-import java.awt.Component;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -12,7 +11,6 @@ import javax.swing.JSplitPane;
 public class TacheAffichageFenetre implements Runnable, Affichage, ActionListener {
 	
 	private JFrame fenetre;
-	private JPanel panneauPrincipal;
 	private JSplitPane splitPaneHorizontal;
 	private JPanel grilleDeJBouttonCases;
 	private JSplitPane splitPaneVertical;
@@ -29,37 +27,54 @@ public class TacheAffichageFenetre implements Runnable, Affichage, ActionListene
 	
 	private void initialiserInterfaceGraphique()
 	{
-		
+		// Création de la fenêtre
 		fenetre = new JFrame();
 		fenetre.setTitle("Othello");
-		fenetre.setSize(500,500);
+		fenetre.setSize(800, 400);
 		fenetre.setResizable(false);
 		fenetre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		fenetre.setJMenuBar(new BarreDeMenuDuJeu(this.fenetre));
 		
-		panneauPrincipal = new JPanel();
-		
-		splitPaneHorizontal = new JSplitPane();
+		// Création du splitpane de la grille de jeu
+		splitPaneHorizontal = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT);
 		splitPaneHorizontal.setBorder(null);
+		splitPaneHorizontal.setResizeWeight(0.0);
+		splitPaneHorizontal.setEnabled(false);
 	
-		splitPaneVertical = new JSplitPane();
+		// Création du splitpane du score et des indications de jeu
+		splitPaneVertical = new JSplitPane(JSplitPane.VERTICAL_SPLIT);
 		splitPaneVertical.setBorder(null);
+		splitPaneVertical.setResizeWeight(0.5);
+		splitPaneVertical.setEnabled(false);
 		
-		fenetre.setContentPane(panneauPrincipal);
-		panneauPrincipal.add(splitPaneHorizontal);
+		// Création du panneau de la grille de jeu
+		grilleDeJBouttonCases = new JPanel();
+		grilleDeJBouttonCases.setLayout(new GridLayout(8,8));
 		
-		splitPaneHorizontal.add(grilleDeJBouttonCases);
-		grilleDeJBouttonCases.setLayout(dispositionCases);
-		splitPaneHorizontal.add(splitPaneVertical);
+		// Création du panneau du score
+		panneauScore = new JPanel();
+		
+		// Création du panneau des indications de jeu
+		panneauIndications = new JPanel();
+		
+		// Création des labels
+		labelScoreJoueurBlanc = new JLabel();
+		labelScoreJoueurNoir = new JLabel();
+		labelIndications = new JLabel();
+		
+		// Assemblage du splitpane vertical	
+		panneauIndications.add(new JLabel("Indications de jeu"));
+		panneauIndications.add(labelIndications);
+		panneauScore.add(new JLabel("Score"));
+		panneauScore.add(labelScoreJoueurBlanc);
+		panneauScore.add(labelScoreJoueurNoir);
 		
 		splitPaneVertical.add(panneauIndications);
 		splitPaneVertical.add(panneauScore);
 		
-		panneauIndications.add(labelIndications);
-		panneauScore.add(labelScoreJoueurBlanc);
-		panneauScore.add(labelScoreJoueurNoir);
-				
-		// Initialisation des boutons de la grille
+		// Initialisation des boutons de la grille de jeu
+		this.cases = new JButtonCase[8][8];
+		
 		for (int numeroDeLigne = 0; numeroDeLigne < 8; numeroDeLigne++)
 			for (int numeroDeColonne = 0; numeroDeColonne < 8; numeroDeColonne++)
 			{
@@ -67,18 +82,26 @@ public class TacheAffichageFenetre implements Runnable, Affichage, ActionListene
 						new Position(numeroDeLigne, numeroDeColonne));
 				grilleDeJBouttonCases.add(cases[numeroDeLigne][numeroDeColonne]);
 			}
+		this.cases[3][3].mettreCouleur(Couleur.BLANC);
+		this.cases[4][4].mettreCouleur(Couleur.BLANC);
+		this.cases[3][4].mettreCouleur(Couleur.NOIR);
+		this.cases[4][3].mettreCouleur(Couleur.NOIR);
 		
+		// Assemblage du splitpane horizontal
+		splitPaneHorizontal.add(grilleDeJBouttonCases);	
+		splitPaneHorizontal.add(splitPaneVertical);
+		
+		// Assemblage du panneau principal
+		fenetre.setContentPane(splitPaneHorizontal);
 
+		// Affichage de la fenêtre
 		fenetre.setVisible(true);
 	}
-	
-	
 	
 	public void run()
 	{
 		this.initialiserInterfaceGraphique();
 	}
-
 
 
 	@Override
@@ -88,7 +111,6 @@ public class TacheAffichageFenetre implements Runnable, Affichage, ActionListene
 	}
 
 
-
 	@Override
 	public void afficherDemandeCoordonnees(Joueur joueurBlanc) {
 		// TODO Auto-generated method stub
@@ -96,13 +118,11 @@ public class TacheAffichageFenetre implements Runnable, Affichage, ActionListene
 	}
 
 
-
 	@Override
 	public void afficherPositionInvalide(Position positionDesiree) {
 		// TODO Auto-generated method stub
 		
 	}
-
 
 
 	@Override

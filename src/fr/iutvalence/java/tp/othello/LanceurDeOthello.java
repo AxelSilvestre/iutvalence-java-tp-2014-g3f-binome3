@@ -23,6 +23,6 @@ public class LanceurDeOthello
 				joueurBlanc, joueurNoir, new AffichageConsole()); 
 		// On crée une nouvelle partie d'Othello.
 		SwingUtilities.invokeLater(new TacheAffichageFenetre());
-		nouvellePartieDeOthello.jouer();	
+		nouvellePartieDeOthello.jouer();
 	}
 }
